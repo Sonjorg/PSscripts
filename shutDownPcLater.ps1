@@ -1,5 +1,5 @@
-#Skrur av pc-en om x timer
-[float]$hours = read-host -prompt 'Avslutte pc om hvor mange timer?'
+#Shuts down your PC in X hours
+[float]$hours = read-host -prompt 'When to shut down PC(hours from now)?'
 $name = read-host -prompt 'Gi oppgaven et navn'
 $date = (get-date).addhours($hours)
 $tasktrigger = new-scheduledtasktrigger -Once -At $date
@@ -11,6 +11,6 @@ Register-Scheduledtask `
     -Action $taskaction `
     -Trigger $tasktrigger
 $tid = (get-date)
-$log = "En task schedule opprettet klokken $tid satt til å avslutte pcen klokken $date ! =)"
-add-content -path "\users\$env:UserName\avsluttpclog.log" -value $log
-start-process -path "\users\$env:UserName\avsluttpclog.log"
+$log = "Task schedule created at $tid to shut down the PC at $date ! =)"
+add-content -path "\users\$env:UserName\shutdownpclog.log" -value $log
+start-process -path "\users\$env:UserName\shutdownpclog.log"
