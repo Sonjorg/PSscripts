@@ -1,8 +1,10 @@
 #edit the string array to what you want to search for (can also include only one entry)
 #This will filter your expenditure, download your expenditure .csv file from your bank
-#How to use: replace, remove or add to the phrases underneath to see all expenditure on the posts you want to know how much you spent on,
+#How to use: replace, remove or add to the phrases underneath to see all expenditure on its corresponding posts,
+#replace "filepath.csv" with the path of the file you downloaded
 
 $stringarray = ".*mcdonalds*.", ".*tacobell*.", ".*pizzahut*.", ".*starbucks*.", ".*walmart*."
+$filepath = "filepath.csv"
 #$stringarray = ".*extra*.", ".*rema*.", ".*obs*.", ".*matkroken*.", ".*meny*."
 import-csv "filepath.csv" | select-string $stringarray | export-csv C:\Users\$env:UserName\Desktop\spending.csv
 $array = select-string -path C:\Users\$env:userName\Desktop\spending2.csv -pattern '"-[0-9]*' -allmatches
