@@ -17,5 +17,5 @@ $sum = 0
 $array1 | Foreach { $sum += $_}
 remove-item -path "C:\Users\$env:userName\Desktop\spending.csv"
 $array
-Write-Host "Above you can see all purchases made to the outposts with the chosen phrases, and underneath is the total costs: " -ForegroundColor magenta
+Write-Host "Above you can see all the purchases made to the businesses with the chosen phrases, and underneath are the total costs: " -ForegroundColor magenta
 $sum | write-output
