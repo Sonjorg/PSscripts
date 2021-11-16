@@ -3,10 +3,10 @@
 
 ### newRestorePointDaily.ps1
 Creates a new restorepoint daily at 8:00PM
-#### How to use
+##### How to use
 - Add the folder in you home directory and run newRestorePointDaily.ps1 as administrator once.
 - Can easily be changed to run at another time or weekly instead of daily
-#### Good to know
+##### Good to know
 - The user needs to be be able to run the script as administrator for it to work, otherwise it might work if you use
 "powershell -noprofile -executionpolicy bypass -file "FilePath"" for all 3 files
 - You might want to delete the restorepoints about twice a year as each point is 300MB(or more, you can change size in the settings);
