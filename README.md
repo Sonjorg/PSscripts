@@ -1,7 +1,7 @@
 # s0ndremannTools
-## (security)scripts that may be useful.
+## **(security)scripts that may be useful.**
 
-### newRestorePointDaily.ps1
+### **newRestorePointDaily.ps1**
 Creates a new restorepoint daily at 8:00PM
 ##### How to use
 - Add the folder in you home directory and run newRestorePointDaily.ps1 as administrator once.
@@ -14,9 +14,13 @@ Creates a new restorepoint daily at 8:00PM
 - To see all restorepoints you have, use "get-computerrestorepoint" in powershell as admin or "vssadmin list shadows" in cmd as admin.
 - To remove the task go to powershell and type Unregister-ScheduledTask -taskname newRestorePointDaily
 
-### findFile.ps1
+### **findFile.ps1**
 Easy ways to find files you cant find.
-### shutDownPcLater.ps1
+### **shutDownPcLater.ps1**
 If you're in the middle of a long upload, this script shuts down after a desired time. Creates a nice log file of when it shut down.
-### Active Directory and group policy
+### **Active Directory and group policy**
 Unperfect scripts that are a good start for setting up active directory, some group policy settings and creating new users. Everything is written in norwegian.
+### **preciseMoneyExpenditure.ps1**
+This will filter your expenditure, download your expenditure .csv file from your bank
+##### How to use 
+Replace, remove or add to the phrases to search for all expenditure on the phrases' corresponding posts, (can also include only one entry). Replace "filepath.csv" with the path of the file you downloaded.
