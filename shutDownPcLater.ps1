@@ -1,6 +1,6 @@
 #Shuts down your PC after x hours
 [float]$hours = read-host -prompt 'When to shut down PC(hours from now)?'
-$name = read-host -prompt 'Gi oppgaven et navn'
+$name = [System.IO.Path]::GetRandomFileName()
 $date = (get-date).addhours($hours)
 $tasktrigger = new-scheduledtasktrigger -Once -At $date
 $taskaction = New-ScheduledTaskAction `
