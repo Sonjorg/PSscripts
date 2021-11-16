@@ -7,7 +7,7 @@ $stringarray = ".*mcdonalds*.", ".*tacobell*.", ".*pizzahut*.", ".*starbucks*.",
 import-csv "filepath.csv" | select-string $stringarray | export-csv C:\Users\$env:UserName\Desktop\spending.csv
 $array = select-string -path C:\Users\$env:userName\Desktop\spending2.csv -pattern '"-[0-9]*' -allmatches
 [array]$array1 = select-string -path C:\Users\$env:userName\Desktop\spending.csv -pattern '"-[0-9]*' -allmatches | % { $_.Matches } | % { $_.Value }
-#https://stackoverflow.com/questions/12609760/i-would-like-to-color-highlight-sections-of-a-pipeline-string-according-to-a-reg
+#source: https://stackoverflow.com/questions/12609760/i-would-like-to-color-highlight-sections-of-a-pipeline-string-according-to-a-reg
 $array1 = $array1 -replace '"',''
 $array1 = $array1 -replace ' ',''
 [int]$array1 = [convert]::ToInt32($array1, 10)
@@ -16,4 +16,4 @@ $array1 | Foreach { $sum += $_}
 remove-item -path "C:\Users\$env:userName\Desktop\spending.csv"
 $array
 Write-Host "Above you can see all purchases made to the outposts with the chosen phrases, and underneath is the total costs: " -ForegroundColor magenta
-$sum | write-output
+"Total costs are: $sum"
