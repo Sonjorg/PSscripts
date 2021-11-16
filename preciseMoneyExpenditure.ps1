@@ -1,6 +1,6 @@
-#edit the string array to what you want to search for (can also include only one entry)
 #This will filter your expenditure, download your expenditure .csv file from your bank
-#How to use: replace, remove or add to the phrases underneath to see all expenditure on its corresponding posts,
+#How to use: replace, remove or add to the phrases underneath to search for all expenditure on the phrases' corresponding posts,
+#(can also include only one entry)
 #replace "filepath.csv" with the path of the file you downloaded
 
 $stringarray = ".*mcdonalds*.", ".*tacobell*.", ".*pizzahut*.", ".*starbucks*.", ".*walmart*."
