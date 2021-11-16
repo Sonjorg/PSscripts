@@ -18,3 +18,5 @@ Creates a new restorepoint daily at 8:00PM
 Easy ways to find files you cant find.
 ### shutDownPcLater.ps1
 If you're in the middle of a long upload, this script shuts down after a desired time. Creates a nice log file of when it shut down.
+### Active Directory and group policy
+Unpefect scripts that are a good start for setting up active directory, some group policy settings and creating new users. Everything is written in norwegian.
