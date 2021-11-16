@@ -1,3 +1,20 @@
 # s0ndremannTools
+## (security)scripts that may be useful.
 
-security/scripts/may be useful.
+### newRestorePointDaily.ps1
+Creates a new restorepoint daily at 8:00PM
+#### How to use
+- Add the folder in you home directory and run newRestorePointDaily.ps1 as administrator once.
+- Can easily be changed to run at another time or weekly instead of daily
+#### Good to know
+- The user needs to be be able to run the script as administrator for it to work, otherwise it might work if you use
+"powershell -noprofile -executionpolicy bypass -file "FilePath"" for all 3 files
+- You might want to delete the restorepoints about twice a year as each point is 300MB(or more, you can change size in the settings);
+"vssadmin delete shadows /For=C: /oldest" or /all in cmd as admin.
+- To see all restorepoints you have, use "get-computerrestorepoint" in powershell as admin or "vssadmin list shadows" in cmd as admin.
+- To remove the task go to powershell and type Unregister-ScheduledTask -taskname newRestorePointDaily
+
+### findFile.ps1
+Easy ways to find files you cant find.
+### shutDownPcLater.ps1
+If you're in the middle of a long upload, this script shuts down after a desired time. Creates a nice log file of when it shut down.

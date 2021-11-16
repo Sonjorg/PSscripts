@@ -1,4 +1,4 @@
-#Shuts down your PC in X hours
+#Shuts down your PC after x hours
 [float]$hours = read-host -prompt 'When to shut down PC(hours from now)?'
 $name = read-host -prompt 'Gi oppgaven et navn'
 $date = (get-date).addhours($hours)

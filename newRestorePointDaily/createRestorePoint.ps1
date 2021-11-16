@@ -1,0 +1,1 @@
+Start-Process powershell -verb runas -ArgumentList ("-noprofile", "-file C:\users\$env:UserName\newrestorepointdaily\createRestorePoint2.ps1")
