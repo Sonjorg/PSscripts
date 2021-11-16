@@ -22,5 +22,5 @@ If you're in the middle of a long upload, this script shuts down after a desired
 Unperfect scripts that are a good start for setting up active directory, some group policy settings and creating new users. Everything is written in norwegian.
 ### preciseMoneyExpenditure.ps1
 This will filter your expenditure, download your expenditure .csv file from your bank
-#### How to use 
+##### How to use 
 Replace, remove or add to the phrases to search for all expenditure on the phrases' corresponding posts, (can also include only one entry). Replace "filepath.csv" with the path of the file you downloaded.
