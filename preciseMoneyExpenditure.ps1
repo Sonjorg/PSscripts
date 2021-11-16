@@ -7,7 +7,7 @@ $stringarray = ".*mcdonalds*.", ".*tacobell*.", ".*pizzahut*.", ".*starbucks*.",
 $filepath = "filepath.csv"
 #$stringarray = ".*extra*.", ".*rema*.", ".*obs*.", ".*matkroken*.", ".*meny*."
 import-csv "filepath.csv" | select-string $stringarray | export-csv C:\Users\$env:UserName\Desktop\spending.csv
-$array = select-string -path C:\Users\$env:userName\Desktop\spending2.csv -pattern '"-[0-9]*' -allmatches
+$array = select-string -path C:\Users\$env:userName\Desktop\spending.csv -pattern '"-[0-9]*' -allmatches
 [array]$array1 = select-string -path C:\Users\$env:userName\Desktop\spending.csv -pattern '"-[0-9]*' -allmatches | % { $_.Matches } | % { $_.Value }
 #https://stackoverflow.com/questions/12609760/i-would-like-to-color-highlight-sections-of-a-pipeline-string-according-to-a-reg
 $array1 = $array1 -replace '"',''
