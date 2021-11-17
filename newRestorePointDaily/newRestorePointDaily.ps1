@@ -1,6 +1,7 @@
 Enable-ComputerRestore -Drive C:\
-$tasktrigger = new-scheduledtasktrigger -daily -At 8:00PM
+$tasktrigger = new-scheduledtasktrigger -AtStartup
 $name = "newRestorePointDaily"
+
 $taskaction = New-ScheduledTaskAction `
     -Execute 'powershell.exe' `
     -argument "-file C:\users\$env:UserName\newrestorepointdaily\createRestorePoint.ps1"
