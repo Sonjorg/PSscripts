@@ -1,1 +1,1 @@
-Checkpoint-Computer -description "restorePointX" -RestorePointType "MODIFY_SETTINGS"
+Checkpoint-Computer -description "newRestorePointDaily" -RestorePointType "MODIFY_SETTINGS"
