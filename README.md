@@ -19,7 +19,7 @@ Easy ways to find files you cant find.
 ### **shutDownPcLater.ps1**
 If you're in the middle of a long upload or other type of job, and then have to leave, this script shuts down your PC after a desired time. Creates a nice log file of when it will shut down.
 ### **preciseMoneyExpenditure.ps1**
-This will filter your expenditure, download your expenditure .csv file from your bank
+This will filter your expenditure, download your balance sheet (.csv) file from your bank and search for phrases associated with a business. It shows all entries with the selected phrase and the sum of money spent on it.
 ##### How to use
 Replace, remove or add to the phrases to search for all expenditure on the phrases' corresponding posts, (can also include only one entry). Replace "filepath.csv" with the path of the file you downloaded.
 ### **Active Directory and group policy**
