@@ -26,4 +26,4 @@ Replace, remove or add to the phrases to search for all expenditure on the phras
 Easy ways to find files you cant find. Very useful if you have 4 TB of storage like myself.
 
 ### **Active Directory and group policy**
-Unperfect scripts that are a good start for setting up active directory, some group policy settings and adding new users. Everything is written in norwegian.
+Scripts that are a good start for setting up and maintaining active directory, adding new users to it and enabling some group policy settings. (Everything is written in norwegian).
