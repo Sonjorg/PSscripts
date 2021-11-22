@@ -18,10 +18,9 @@ Creates a new restorepoint daily at 8PM
 If you're in the middle of a long upload or other type of job, and then have to leave, this script shuts down your PC after a desired time. Creates a nice log file of when it will shut down.
 
 ### **preciseMoneyExpenditure.ps1**
-This will filter your expenditure, download your balance sheet (.csv) file from your bank and search for phrases associated with a business. It shows all entries with the selected phrase and the sum of money spent on it.
+This one has nothing to do with IT but is very useful for a student; This will filter your expenditure, download your balance sheet (.csv) file from your bank and search for phrases associated with a business. It shows all entries with the selected phrase and the sum of money spent on it.
 ##### How to use
 Replace, remove or add to the phrases to search for all expenditure on the phrases' corresponding posts, (can also include only one entry). Replace "filepath.csv" with the path of the file you downloaded.
-
 
 ### **findFile.ps1**
 Easy ways to find files you cant find.
