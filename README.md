@@ -23,7 +23,7 @@ This one has nothing to do with IT but is very useful for a student; This will f
 Replace, remove or add to the phrases to search for all expenditure on the phrases' corresponding posts, (can also include only one entry). Replace "filepath.csv" with the path of the file you downloaded.
 
 ### **findFile.ps1**
-Easy ways to find files you cant find.
+Easy ways to find files you cant find. Very useful if you have 4 TB of storage like myself.
 
 ### **Active Directory and group policy**
 Unperfect scripts that are a good start for setting up active directory, some group policy settings and adding new users. Everything is written in norwegian.
