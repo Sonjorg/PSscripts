@@ -13,8 +13,10 @@ Do {
     $another = (Read-host -Prompt "Another phrase? 'y' for yes / any other key for no").toupper()
     [array]$stringArray += $item;
 } While ($another -eq 'Y')
+# Alternatively use one of the string arrays underneath:
 # $stringarray = ".*mcdonalds*.", ".*tacobell*.", ".*pizzahut*.", ".*starbucks*.", ".*walmart*."
-# $stringarray = ".*extra*.", ".*rema*.", ".*obs*.", ".*matkroken*.", ".*meny*."
+# $stringarray = ".*extra*.", ".*rema*.", ".*obs*.", ".*matkroken*.", ".*meny*.", ".*spar*.", ".*kiwi*.", ".*mcd*."
+$stringarray
 import-csv $filepath | select-string $stringarray | export-csv C:\Users\$env:UserName\Desktop\spending.csv
 $array = select-string -path C:\Users\$env:userName\Desktop\spending.csv -pattern '-[0-9]*' -allmatches
 [array]$array1 = Import-Csv -path C:\Users\$env:userName\Desktop\spending.csv | select-string -pattern '-[0-9]*' -allmatches | ForEach-Object { $_.Matches } | ForEach-Object { $_.Value }
@@ -28,5 +30,7 @@ $sum = 0
 $array1 | ForEach-Object { $sum += $_}
 remove-item -path "C:\Users\$env:userName\Desktop\spending.csv"
 $array
+"`n"
 Write-Host "Above you can see all the purchases made to the businesses with the chosen phrases, and underneath are the total costs: " -ForegroundColor magenta
 Write-host "Total costs are: $sum" -ForegroundColor green
+"`n"
