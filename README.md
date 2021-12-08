@@ -17,13 +17,14 @@ Creates a new restorepoint daily at 8PM
 ### **shutDownPcLater.ps1**
 If you're in the middle of a long upload or other type of job, and then have to leave, this script shuts down your PC after a desired time. Creates a nice log file of when it will shut down.
 
-### **preciseMoneyExpenditure.ps1**
-This one has nothing to do with IT but is very useful for a student; This will filter your expenditure, download your balance sheet (.csv) file from your bank and search for phrases associated with a business. It shows all entries with the selected phrase and the sum of money spent on it.
+### **Consumption.ps1**
+This is irrelevant for IT but is very useful for students; This will filter your expenditures. Export/download your balance sheet (.csv) file from your bank and search for phrases associated with a business. It shows all entries with the selected phrase and the sum of money spent on it.
 ##### How to use
-Replace, remove or add to the phrases to search for all expenditure on the phrases' corresponding posts, (can also include only one entry). Replace "filepath.csv" with the path of the file you downloaded.
+Run the script in powershell as described in README.MD, or you can replace, and add to the phrases in $stringarray to search for all expenditures on the phrases' corresponding posts.
+WARNING: Make sure the phrases are correct; use the script to search the correct names used in the file, i.e McDonalds is called 'MCD' in some places.
 
 ### **findFile.ps1**
-Easy ways to find files you cant find. Very useful if you have 4 TB of storage like myself.
+Easy ways to find files you cant find. Very useful if you have 4+ TB of storage like myself.
 
 ### **Active Directory and group policy**
 Scripts that are a good start for setting up and maintaining active directory, adding new users to it and enabling some group policy settings for security in the business. (Everything is written in norwegian).
