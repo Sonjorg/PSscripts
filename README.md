@@ -1,6 +1,6 @@
 # s0ndremann Tools/Scripts
 ## **Scripts that may be useful.**
-**I recommend using my scripts in native powershell or PS7 and not in the vs code extenstion in case of bugs, and extra processing time.
+**I recommend using my scripts in native powershell or PS7 and not in the vs code extenstion in case of bugs, and extra processing time.**
 ### **newRestorePointDaily.ps1**
 Creates a new restorepoint daily at 8PM
 ##### How to use
