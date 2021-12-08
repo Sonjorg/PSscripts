@@ -1,8 +1,9 @@
 # s0ndremann Tools/Scripts
-## **(security)scripts that may be useful.**
-
+## **Scripts that may be useful.**
+**I recommend using my scripts in native powershell or PS7 and not in the vs code extenstion in case of bugs, and extra processing time.**
+**Please contact me at sondrjor@stud.ntnu.no to report bugs or to ask questions.**
 ### **newRestorePointDaily.ps1**
-Creates a new restorepoint daily at 8PM
+Creates a new restorepoint daily.
 ##### How to use
 - Add the folder in you home directory and run newRestorePointDaily.ps1 as administrator once.
 - Can easily be changed to run at another time or weekly instead of daily
