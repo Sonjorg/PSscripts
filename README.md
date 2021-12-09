@@ -21,7 +21,7 @@ If you're in the middle of a long upload or other type of job, and then have to 
 ### **Consumption.ps1**
 This is irrelevant for IT but is very useful for students; This will filter your expenditures. Export/download your balance sheet (.csv) file from your bank and search for phrases associated with a business. It shows all entries with the selected phrase and the sum of money spent on it.
 ##### How to use
-Run the script in powershell as described in README.MD, or you can replace, and add to the phrases in $stringarray to search for all expenditures on the phrases' corresponding posts.
+Run the script in powershell and a dialog will tell you what to do, or you can replace, and add to the phrases in $stringarray to search for all expenditures on the phrases' corresponding posts.
 WARNING: Make sure the phrases are correct; use the script to search the correct names used in the file, i.e McDonalds is called 'MCD' in some places.
 
 ### **findFile.ps1**
