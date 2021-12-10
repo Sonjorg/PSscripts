@@ -1,6 +1,6 @@
 #This will filter your expenditure, export/download your expenditure .csv file from your bank
 #It is recommended to run this in powershell and not in the vscode terminal in case of error and readability
-#How to use: run the script in powershell as described in README.MD, 
+#How to use: run the script in powershell and follow the dialogue.
 #or you can replace the filepath, and add to the phrases in $stringarray to search for all expenditures on the phrases' corresponding posts,
 #(can also include only one entry)
 #replace "filepath.csv" with the path of the file you downloaded
