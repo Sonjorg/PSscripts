@@ -1,4 +1,4 @@
-# s0ndremann Tools/Scripts
+# Powershell scripts
 ## **Scripts that may be useful.**
 **I recommend using my scripts in native powershell or PS7 and not in the vs code extenstion in case of bugs, and extra processing time.**
 **Please contact me at sondrjor@stud.ntnu.no to report bugs or to ask questions.**
