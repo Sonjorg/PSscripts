@@ -24,8 +24,8 @@ This is irrelevant for IT but is very useful for students; This will filter your
 Run the script in powershell and a dialog will tell you what to do, or you can replace, and add to the phrases in $stringarray to search for all expenditures on the phrases' corresponding posts.
 WARNING: Make sure the phrases are correct; use the script to search the correct names used in the file, i.e McDonalds is called 'MCD' in some places.
 
-### **findFile.ps1**
-Easy ways to find files you cant find. Very useful if you have 4+ TB of storage like myself.
+### **oneliners.ps1**
+Easy ways to find files you cant find, among other things.
 
 ### **Active Directory and group policy**
 Scripts that are a good start for setting up and maintaining active directory, adding new users to it and enabling some group policy settings for security in the business. (Everything is written in norwegian).
