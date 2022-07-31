@@ -20,3 +20,5 @@ $time = (get-date)
 $log = "Task schedule created at $time to shut down the PC at $time2 ! =)"
 add-content -path "\users\$env:UserName\shutdownpclog.log" -value $log
 start-process -path "\users\$env:UserName\shutdownpclog.log"
+
+Read-Host -Prompt "Press Enter to exit"

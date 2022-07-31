@@ -8,4 +8,12 @@ Get-ChildItem -path C:\ -Include *filename* -recurse | Where-Object {$_.lastacce
 get-childitem * | select name, length | sort { $_.length } -descending
 #Clean disks
 cleanmgr /sagerun:1 | out-Null
+#scheduled tasks:
+#get list of all scheduled tasks
+Get-ScheduledTask
+#to disable it only:
+Get-ScheduledTask | where {$_.taskname -eq "name"} | disable-scheduledtask
+#to delete it:
+Get-ScheduledTask | where {$_.taskname -eq "name"} | Unregister-ScheduledTask
+
 #tip: use get-help before a cmdlet to see arguments or "| get-member" after to get objects and methods

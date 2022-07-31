@@ -15,3 +15,5 @@ $Settings = New-ScheduledTaskSettingsSet -WakeToRun
 set-scheduledtask `
     -taskname $name `
     -settings $Settings
+
+Read-Host -Prompt "Press Enter to exit"

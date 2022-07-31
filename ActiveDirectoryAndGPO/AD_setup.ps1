@@ -12,13 +12,13 @@ New-ADOrganizationalUnit -Name "Doerer" -Path "DC=onpremit,DC=sec"
 #Lager shared mapper på en server foreløpig og dfsn namespace
 Install-WindowsFeature -Name FS-DFS-Namespace,FS-DFS-Replication,RSAT-DFS-Mgmt-Con -IncludeManagementTools
 Import-Module dfsn
-$folders = (‘C:\Installerfiles‘‘C:\dfsroots\files’,’C:\shares\regnskap’,’C:\shares\itdrift’,’C:\shares\developers’,’C:\shares\HR’,’C:\shares\itdrift\ISOfiler’,’C:\shares\printere’,’C:\shares\doerer) 
+$folders = ('C:\Installerfiles','C:\dfsroots\files','C:\shares\regnskap','C:\shares\itdrift','C:\shares\developers','C:\shares\HR','C:\shares\itdrift\ISOfiler','C:\shares\printere','C:\shares\doerer')
 mkdir -path $folders
 $folders | ForEach-Object {$sharename = (Get-Item $_).name; New-SMBShare -Name $shareName -Path $_ -FullAccess Everyone}
 
 New-DfsnRoot -TargetPath \\tim-srv1\files -Path \\onpremit.sec\files -Type DomainV2
 $folders | Where-Object {$_ -like "*shares*"} | ForEach-Object {$name = (Get-Item $_).name;
-$DfsPath = (‘\\onpremit.sec\’ + $name); $targetPath = (‘\\srv1\’ + $name); New-DfsnFolderTarget -Path $dfsPath -TargetPath $targetPath}
+$DfsPath = (‘\\onpremit.sec\’ + $name); $targetPath = (‘\\srv1\’ + $name); New-DfsnFolderTarget -Path $dfsPath -TargetPath $targetPath
 #Brukt all kode over fra mellings dokument: https://gitlab.com/undervisning/dcst1005-demo/-/blob/master/configure-dfs-namespace.ps1
 
 #Finner alle shares som tilhører en avdeling
@@ -27,10 +27,10 @@ $Shares = For ($i=0; $i -le $OU.count; $i++) {  # forløkke: https://www.busines
             Get-smbshare | where-object {$_.name -like $OU[$i].name} } # Kommando til array 2/2
             }
 #Lager en mappe som heter "ansatte" inni alle avdelings-shares
-For ($i=0; $i -le $Shares.count; $i++) { 
+For ($i=0; $i -le $Shares.count; $i++) {
     mkdir -path \\onpremit.sec\$Shares[$i].name\ansatte
     New-smbshare -name $mappe -path \\onpremit.sec\$Shares[$i].name\ansatte
-
+}
 #Installerer IIS på srv1
 #Kilde: https://adamtheautomator.com/powershell-iis/
 Install-Module -Name 'IISAdministration'
@@ -39,22 +39,22 @@ New-Item -ItemType File -Name 'onpremiumit.html' -Path 'C:\onpremitnettside\'
 New-IISSite -Name 'onpremitnettside' -PhysicalPath 'C:\\' -BindingInformation "*:8088:"
 
 #Linker min egen GPO til alle avdelings OU-er
-Get-GPO -Name "Sondres GP instillinger" | 
+Get-GPO -Name "Sondres GP instillinger" |
  New-GPLink -Target "OU=Workstations,DC=onpremit,DC=sec"
 
- Get-GPO -Name "Sondres GP instillinger" | 
+ Get-GPO -Name "Sondres GP instillinger" |
 New-GPLink -Target "OU=Regnskap,DC=sec,DC=core"
 
- Get-GPO -Name "Sondres GP instillinger" | 
+ Get-GPO -Name "Sondres GP instillinger" |
 New-GPLink -Target "OU=HR,DC=sec,DC=core"
 
- Get-GPO -Name "Sondres GP instillinger" | 
+ Get-GPO -Name "Sondres GP instillinger" |
 New-GPLink -Target "OU=Developers,DC=sec,DC=core"
 
-Get-GPO -Name "Sondres GP instillinger" | 
+Get-GPO -Name "Sondres GP instillinger" |
  New-GPLink -Target "OU=ITdrift,DC=sec,DC=core"
- 
- Get-GPO -Name "Sondres GP instillinger" | 
+
+ Get-GPO -Name "Sondres GP instillinger" |
  New-GPLink -Target "OU=Renhold,DC=sec,DC=core"
 
 #NB: All kode nedenfor er bare kopiert ifra https://gitlab.com/erikhje/dcsg1005/-/blob/master/group-policy/notes.md
@@ -71,18 +71,20 @@ Get-GPO -All | Format-Table -Property displayname
 $OU = "OU=Workstations,DC=onpremit,DC=sec"
 
 # Get all currently linked to OU Workstations
-Get-ADOrganizationalUnit $OU | 
+Get-ADOrganizationalUnit $OU |
  Select-Object -ExpandProperty LinkedGroupPolicyObjects
 # if you want to see the names of the GPOs
 # from https://community.spiceworks.com/topic/2197327-powershell-script-to-get-gpo-linked-to-ou-and-its-child-ou
-$LinkedGPOs = Get-ADOrganizationalUnit $OU | 
+$LinkedGPOs = Get-ADOrganizationalUnit $OU |
  Select-object -ExpandProperty LinkedGroupPolicyObjects
 $LinkedGPOGUIDs = $LinkedGPOs | ForEach-object{$_.Substring(4,36)}
-$LinkedGPOGUIDs | 
+$LinkedGPOGUIDs |
  ForEach-object {Get-GPO -Guid $_ | Select-object Displayname }
 
 # link two new ones to OU Workstations
-Get-GPO -Name "MSFT Windows 10 20H2 - Computer" | 
+Get-GPO -Name "MSFT Windows 10 20H2 - Computer" |
  New-GPLink -Target $OU
-Get-GPO -Name "MSFT Windows 10 20H2 - User" | 
+Get-GPO -Name "MSFT Windows 10 20H2 - User" |
  New-GPLink -Target $OU
+
+Read-Host -Prompt "Press Enter to exit"

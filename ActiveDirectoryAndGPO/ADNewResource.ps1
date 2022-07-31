@@ -18,7 +18,7 @@ Function New-User {
         get-aduser -filter * | foreach-object { If ($_.SamAccountName -eq $Brukernavn)
             { $Brukt -eq $true } }
                While ($Brukt -eq $true) {
-                       write-warning "Denne brukeren eksisterer fra før, vennligst oppgi et annet brukernavn." 
+                       write-warning "Denne brukeren eksisterer fra før, vennligst oppgi et annet brukernavn."
                        $Brukernavn = Read-host -prompt "Brukernavn (F.eks på formen "fornavn.etternavn")"
                        $Brukt = $false
                        get-aduser -filter * | foreach-object { if ($_.SamAccountName -eq $Brukernavn) {$Brukt -eq $true}}
@@ -30,7 +30,7 @@ Function New-User {
                 Write-warning "Passordet er ikke langt nok, vennligst skriv et lengre."
             }
     } While ($Password.Length -lt 20)
-            
+
         New-ADUser -Name "$Navn" `
         -GivenName "$Fornavn" `
         -Surname "$Etternavn" `
@@ -54,7 +54,7 @@ Function New-User {
         Grant-SmbShareAccess -Name $Ansattshares[$i].name -AccountName $Brukernavn -AccessRight Read
     }
     #Gir alle brukere innenfor denne avdeling leserettigheter til denne nylig opprettede bruker sin mappe
-    $Brukere = Get-ADUser -Filter * -SearchBase “ou=$OU,dc=onpremit,dc=sec" | where-object {$_.SamAccountName -ne $Brukernavn} 
+    $Brukere = Get-ADUser -Filter * -SearchBase “ou=$OU,dc=onpremit,dc=sec" | where-object {$_.SamAccountName -ne $Brukernavn}
     #Linjen over (Finne alle brukere i en OU): https://devblogs.microsoft.com/scripting/powertip-use-a-single-line-powershell-command-to-list-all-users-in-an-ou/
     $Brukere | For-eachobject | Grant-SmbShareAccess -Name $Brukernavn -AccountName $_ -AccessRight Read
     #Linjen over (Grant-SmbShareAccess): https://4sysops.com/archives/managing-windows-file-shares-with-powershell/
@@ -69,12 +69,13 @@ Function New-Folders {
     "Trykk (1) for å lage en delt mappe inni alle avdelinger"
     "Trykk (2) for å lage en delt mappe inni alle ansattes mapper"
     "Trykk (3) for å lage en delt mappe inni ansattes mapper for en bestemt avdeling"
+    "Trykk (4) for å finne alle brukere til en bestemt avdeling"
     $Kommando2 = Read-host -Prompt 'Kommando'
     switch ($Kommando2)
     {
         1 { $mappe = Read-host -prompt 'Navnet på mappen du ønsker å lage'
                 Get-avdshare
-                    For ($i=0; $i -le $Shares.count; $i++) { 
+                    For ($i=0; $i -le $Shares.count; $i++) {
                         mkdir -path \\onpremit.sec\$Shares[$i].name\$mappe
                         New-smbshare -name $mappe -path \\onpremit.sec\$Shares[$i].name\$mappe
                     }
@@ -100,13 +101,19 @@ Function New-Folders {
             $Brukere = Get-ADUser -Filter * -SearchBase “ou=$OU.name,dc=onpremit,dc=sec" # Alle brukere i en OU: https://devblogs.microsoft.com/scripting/powertip-use-a-single-line-powershell-command-to-list-all-users-in-an-ou/
             $Brukermappe = Get-smbshare | where-object {$_.name -contains $Brukere.SamAccountName}
             $OUmappe = Get-smbshare | where-object {$_.name -contains $OU.name}
-            For ($i=0; $i -le $Brukere.count; $i++) { 
+            For ($i=0; $i -le $Brukere.count; $i++) {
                 mkdir -path "\\onpremit.sec\$OUmappe.name\$Brukermappe.name\$mappe"
                 New-smbshare -name $mappe -path "\\onpremit.sec\$Brukermappe.name\$mappe"
             }
         }
-    Get-ADOrganizationalUnit -filter * | where-object {$_.name -eq "sales"} | foreach-object {get-aduser # <-fungerer
+        4 {$avdeling = Read-host -Prompt 'Hva heter anvdelingen? F.eks "sales"'
+        Get-ADOrganizationalUnit -filter * | where-object {$_.name -eq $avdeling} | foreach-object {get-aduser} # <-fungerer
+        }
+    }
+
+
 }
+
 #Denne switch setningen utfører hovedalternativene til brukeren
 Read-Options
 $kommando = (Read-host -prompt 'Kommando').toupper()
@@ -121,3 +128,5 @@ Switch ($kommando)
     M {New-folders} #Ny mappe innenfor andre mapper
     default {Read-Options}
 }
+
+Read-Host -Prompt "Press Enter to exit"
