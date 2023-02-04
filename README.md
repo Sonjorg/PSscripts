@@ -4,7 +4,7 @@
 **Please contact me at sondrjor@stud.ntnu.no to report bugs or to ask questions.**
 
 ### **Consumption.ps1**
-This will filter your expenditures and show the sum of money spent on it. It is also very useful for finding specific transactions. Export/download your balance sheet (.csv) file from your bank and search for phrases associated with a business. It shows all entries with the selected phrase(s) and the sum of money spent on it.
+This will filter your expenditures and show the sum of money spent on it. It is also very useful for finding specific transactions. Export/download your balance sheet (.csv) file from your bank and search for phrases associated with a business. It shows all entries with the selected phrase(s) and the sum of money spent on it. It should work correctly regardless of your csv file's specific format unless it comes in excel. 
 ##### How to use
 Run the script in powershell and a dialog will tell you what to do, or you can replace, and add to the phrases in $stringarray to search for all expenditures on the phrases' corresponding posts.
 WARNING: Make sure the phrases are correct; use the script to search the correct names used in the file, i.e McDonalds is called 'MCD' in some places.
