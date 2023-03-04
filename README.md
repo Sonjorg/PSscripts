@@ -1,6 +1,6 @@
 # Powershell scripts
 ## **Scripts that may be useful.**
-**I recommend using my scripts in native powershell or PS7 and not in the vs code extenstion in case of bugs, and extra processing time.**
+**I recommend using my scripts in native powershell version 5.1 or 7-, as its where its been tested**
 **Please contact me at sondrjor@stud.ntnu.no to report bugs or to ask questions.**
 
 ### **Consumption.ps1**
@@ -23,7 +23,7 @@ Creates a new restorepoint daily.
 - To remove the task go to powershell and type Unregister-ScheduledTask -taskname newRestorePointDaily
 
 ### **shutDownPcLater.ps1**
-If you're in the middle of a long upload or other type of job, and then have to leave, this script shuts down your PC after a desired time. Creates a nice log file of when it will shut down.
+If you're in the middle of a long upload or other type of job, and then have to leave, this script shuts down your PC after a desired time, and writes to log file.
 
 ### **oneliners.ps1**
 Find files you cant find, delete scheduled tasks, among other things.
