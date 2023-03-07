@@ -1,7 +1,8 @@
 # Powershell scripts
 ## **Scripts that may be useful.**
 **I recommend using my scripts in native powershell version 5.1 or 7-, as its where its been tested**
-**Please contact me at sondrjor@stud.ntnu.no to report bugs or to ask questions.**
+
+#####Please contact me at sondrjor@stud.ntnu.no to report bugs or to ask questions.**
 
 ### **Consumption.ps1**
 This will filter your expenditures and show the sum of money spent on it. It is also very useful for finding specific transactions. Export/download your balance sheet (.csv) file from your bank and search for phrases associated with a business. It shows all entries with the selected phrase(s) and the sum of money spent on it. It should work correctly regardless of your csv file's specific format unless it comes in excel. 
