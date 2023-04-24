@@ -10,6 +10,12 @@ Get-ChildItem -path C:\ -Include *filename* -recurse | Where-Object {$_.lastacce
 #Sort items by size:
 get-childitem * | select name, length | sort { $_.length } -descending
 
+#Remove annoying digits and special characters from subtitle files
+$(foreach($line in Get-Content .\subtitlefile.srt) {$line|foreach {$_ `
+ -replace ':', '' `
+ -replace '-->','' `
+ -replace '\d','' `
+ -replace ',',''}}) | out-file subtitlefile2.srt
 #Remove everything after first word for each entry in a list, for example after pasting from wikipedia
 $(foreach($line in Get-Content .\messylist.txt) {$line|foreach {$_ -replace '\s+.*', '' }}) | out-file cleanlist.txt
 
