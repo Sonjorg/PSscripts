@@ -5,7 +5,7 @@
 #(can also include only one entry)
 #replace "filepath.csv" with the path of the file you downloaded
 
-$filepath = Read-host -prompt 'Please paste the full .csv filepath'
+$filepath = Read-host -prompt 'Drag and drop the file to the shell, or paste the full .csv filepath'
 $filepath = $filepath -replace '"',''
 Do {
     Do {

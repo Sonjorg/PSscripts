@@ -3,7 +3,7 @@
 #If you want to run a scriptfile instead, replace "-Argument..." with
 # -Argument '-File C:\users\yourfile.ps1'
 
-$tasktrigger = new-scheduledtasktrigger -AtStartup
+$tasktrigger = new-scheduledtasktrigger -AtStartup # -Daily at 18:00:00
 $taskaction = New-ScheduledTaskAction `
     -Execute 'powershell.exe' `
     -Argument '-NoProfile -WindowStyle Hidden `
