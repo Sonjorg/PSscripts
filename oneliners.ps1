@@ -1,5 +1,5 @@
 #find file:
-Get-Childitem –Path C:\ -Include *filename* -Recurse
+Get-Childitem –path C:\ -Include *filename* -Recurse
 
 #find folder:
 Get-ChildItem -path C:\ -recurse | Where-Object {$_.PSIsContainer -eq $true -and $_.Name -match "keyword"}
