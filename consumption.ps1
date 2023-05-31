@@ -25,7 +25,7 @@ Do {
     #source: https://stackoverflow.com/questions/12609760/i-would-like-to-color-highlight-sections-of-a-pipeline-string-according-to-a-reg
     $array1 = $array1 -replace '"',''
     $array1 = $array1 -replace ' ',''
-    [double]$array1
+    #[double]$array1
     #[System.Int32[]]$array1
     #[convert]::ToInt32($array1, 10)
     $sum = 0
