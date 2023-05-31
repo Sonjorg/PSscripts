@@ -1,14 +1,14 @@
 # Powershell scripts
 ## **Scripts that may be useful.**
 **I recommend using my scripts in native powershell version 5.1 or 7-, as its where its been tested**
-
+**Script files can be draged onto powershell to start it.**
 ##### Please contact me at sondrjor@stud.ntnu.no to report bugs or to ask questions.
 
 ### **Consumption.ps1**
-This will filter your expenditures and show the sum of money spent on it. It is also very useful for finding specific transactions. Export/download your balance sheet (.csv) file from your bank and search for phrases associated with a business. It shows all entries with the selected phrase(s) and the sum of money spent on it. It should work correctly regardless of your csv file's specific format unless it comes in excel. 
+This will filter your expenditures and show the sum of money spent on it. It is also very useful for finding specific transactions. Export/download your balance sheet (.csv) file from your bank and search for phrases associated with a business. It shows all entries with the selected phrase(s) and the sum of money spent on it. It should work correctly regardless of your csv file's specific format unless it comes in excel.
 ##### How to use
-Run the script in powershell and a dialog will tell you what to do, or you can replace, and add to the phrases in $stringarray to search for all expenditures on the phrases' corresponding posts.
-WARNING: Make sure the phrases are correct; use the script to search the correct names used in the file, i.e McDonalds is called 'MCD' in some places.
+Run the script in powershell, copy the exported csv file "as path", and paste it as answer to the dialogue, now you can search for phrases.
+NB: Make sure the phrases are correct; use the script to search the correct names used in the file, i.e McDonalds is called 'MCD' in some places.
 
 ### **newRestorePointDaily.ps1**
 Creates a new restorepoint daily.
