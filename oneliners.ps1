@@ -35,3 +35,6 @@ Get-ScheduledTask | where {$_.taskname -eq "name"} | disable-scheduledtask
 
 #to delete it:
 Get-ScheduledTask | where {$_.taskname -eq "name"} | Unregister-ScheduledTask
+
+#Count lines of code in a directory
+dir . -filter "*.go" -Recurse -name | foreach{(GC $_).Count} | measure-object -sum
