@@ -31,3 +31,6 @@ Find files you cant find, delete scheduled tasks, among other things.
 
 ### **Active Directory and group policy**
 Scripts that are a good start for setting up and maintaining active directory, adding new users to it and enabling some group policy settings for security in the business. (Everything here is written in norwegian).
+
+### **storeAppSession**
+Saves all apps you have open on PC so you can open them later all at once.
